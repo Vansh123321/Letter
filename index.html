@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Yashu</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: pink;
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heart, .flower {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0.6; }
+        100% { transform: translateY(-50px) translateX(50px) scale(1); opacity: 1; }
+    }
+
+    .text-container {
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        z-index: 10;
+        line-height: 2.5em;
+    }
+
+    .flower-move {
+        display: inline-block;
+        animation: moveFlower 5s linear infinite;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    @keyframes moveFlower {
+        0% { transform: translateX(-50px); }
+        50% { transform: translateX(50px); }
+        100% { transform: translateX(-50px); }
+    }
+
+    button {
+        margin-top: 50px;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #ff4d6d;
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #ff2d55;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="text-container">
+    <div><span class="flower-move">🌸</span> Hii Yashu</div>
+    <div><span class="flower-move">🌺</span> How are you?</div>
+    <div><span class="flower-move">🌷</span> Please click on the button below</div>
+</div>
+
+<button onclick="nextPage()">Click me</button>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.backgroundImage = 'url("https://i.postimg.cc/3x3Qf2yK/heart.png")';
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 10000);
+    }
+
+    function createFlower() {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.style.left = Math.random() * window.innerWidth + 'px';
+        flower.style.backgroundImage = 'url("https://i.postimg.cc/NfVhKv7Y/flower.png")';
+        flower.style.animationDuration = (6 + Math.random() * 6) + 's';
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 12000);
+    }
+
+    setInterval(createHeart, 300);
+    setInterval(createFlower, 500);
+
+    function nextPage() {
+        window.location.href = "page2.html";
+    }
+</script>
+</body>
+</html>
