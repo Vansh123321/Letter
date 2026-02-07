@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care Yashu</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(45deg, pink, red);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+    p {
+        font-size: 1.5em;
+        margin: 20px;
+    }
+
+    .options {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #ff4d6d;
+        color: white;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    button:hover {
+        background-color: #ff2d55;
+    }
+</style>
+</head>
+<body>
+
+<p>You think I don't care about you… I do, I really do. I know you are on your periods, you are sick, tell me how are you?</p>
+
+<div class="options">
+    <button onclick="alert('Thank you for telling me 💖')">I will tell you</button>
+    <button id="sneaky">I don't want to tell you</button>
+</div>
+
+<script>
+    const sneakyBtn = document.getElementById('sneaky');
+
+    sneakyBtn.addEventListener('mouseenter', () => {
+        const x = Math.random() * (window.innerWidth - sneakyBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - sneakyBtn.offsetHeight);
+        sneakyBtn.style.position = 'absolute';
+        sneakyBtn.style.left = x + 'px';
+        sneakyBtn.style.top = y + 'px';
+    });
+</script>
+
+</body>
+</html>
